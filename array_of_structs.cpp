@@ -28,7 +28,10 @@ int main() {
     // Step 3 - Call readTemperatures() to load data from file
     readTemperatures(records, size);
 
-    // TODO: Step 4 - Print the temperatures
+    // Step 4 - Print the temperatures
+    cout << "Monthly Temperature Data:" << endl;
+    cout << "-------------------------" << endl;
+    printTemperatures(records, size);
 
     // TODO: Step 5 - Compute and display min, max, and average temperature
 
@@ -53,8 +56,17 @@ void readTemperatures(TemperatureRecord records[], int& size) {
     inFile.close();
 }
 
-// TODO: Step 7 - Implement printTemperatures()
+// Step 7 - Implement printTemperatures()
 // Print all stored temperatures in a formatted table
+void printTemperatures(const TemperatureRecord records[], int size) {
+    cout << setw(5) << "Day" << setw(10) << "Temp" << endl;
+    cout << setw(5) << "---" << setw(10) << "----" << endl;
+
+    for (int i = 0; i < size; i++) {
+        cout << setw(5) << records[i].day
+             << setw(10) << records[i].temperature << endl;
+    }
+}
 
 // TODO: Step 8 - Implement findMin()
 // Return the TemperatureRecord with the lowest temperature
