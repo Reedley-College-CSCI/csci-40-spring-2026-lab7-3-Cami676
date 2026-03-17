@@ -1,26 +1,27 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
-// TODO: Step 1 - Define the struct TemperatureRecord
-// It should contain two integer fields: day and temperature.
-int TemperatureRecord[32];
-int day;
-int temperature;
+// Step 1 - Define the struct TemperatureRecord
+struct TemperatureRecord {
+    int day;
+    int temperature;
+};
 
 // Constants
 const int MAX_DAYS = 31;
 
 // Function Prototypes
 void readTemperatures(TemperatureRecord records[], int& size);
-void printTemperatures(const ???);
-TemperatureRecord findMin(const ???);
-TemperatureRecord findMax(const ???);
-double findAverage(const ???);
+void printTemperatures(const TemperatureRecord records[], int size);
+TemperatureRecord findMin(const TemperatureRecord records[], int size);
+TemperatureRecord findMax(const TemperatureRecord records[], int size);
+double findAverage(const TemperatureRecord records[], int size);
 
 int main() {
     // TODO: Step 2 - Declare an array of TemperatureRecord structs (MAX_DAYS size)
-    
+
     int size = 0;  // Actual number of records read
 
     // TODO: Step 3 - Call readTemperatures() to load data from file
