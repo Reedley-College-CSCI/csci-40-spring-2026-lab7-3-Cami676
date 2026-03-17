@@ -33,7 +33,10 @@ int main() {
     cout << "-------------------------" << endl;
     printTemperatures(records, size);
 
-    // TODO: Step 5 - Compute and display min, max, and average temperature
+    // Step 5 - Compute and display min, max, and average temperature
+    double avgTemp = findAverage(records, size);
+    cout << fixed << setprecision(2);
+    cout << "Average temperature: " << avgTemp << endl;
 
     return 0;
 }
@@ -74,5 +77,12 @@ void printTemperatures(const TemperatureRecord records[], int size) {
 // TODO: Step 9 - Implement findMax()
 // Return the TemperatureRecord with the highest temperature
 
-// TODO: Step 10 - Implement findAverage()
+// Step 10 - Implement findAverage()
 // Compute and return the average temperature
+double findAverage(const TemperatureRecord records[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += records[i].temperature;
+    }
+    return static_cast<double>(sum) / size;
+}
