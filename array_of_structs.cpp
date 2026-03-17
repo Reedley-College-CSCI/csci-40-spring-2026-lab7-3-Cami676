@@ -34,7 +34,11 @@ int main() {
     printTemperatures(records, size);
 
     // Step 5 - Compute and display min, max, and average temperature
+    TemperatureRecord minTemp = findMin(records, size);
+    TemperatureRecord maxTemp = findMax(records, size);
     double avgTemp = findAverage(records, size);
+    cout << "Lowest temperature:  " << minTemp.temperature << " on day " << minTemp.day << endl;
+    cout << "Highest temperature: " << maxTemp.temperature << " on day " << maxTemp.day << endl;
     cout << fixed << setprecision(2);
     cout << "Average temperature: " << avgTemp << endl;
 
@@ -71,11 +75,29 @@ void printTemperatures(const TemperatureRecord records[], int size) {
     }
 }
 
-// TODO: Step 8 - Implement findMin()
+// Step 8 - Implement findMin()
 // Return the TemperatureRecord with the lowest temperature
+TemperatureRecord findMin(const TemperatureRecord records[], int size) {
+    TemperatureRecord min = records[0];
+    for (int i = 1; i < size; i++) {
+        if (records[i].temperature < min.temperature) {
+            min = records[i];
+        }
+    }
+    return min;
+}
 
-// TODO: Step 9 - Implement findMax()
+// Step 9 - Implement findMax()
 // Return the TemperatureRecord with the highest temperature
+TemperatureRecord findMax(const TemperatureRecord records[], int size) {
+    TemperatureRecord max = records[0];
+    for (int i = 1; i < size; i++) {
+        if (records[i].temperature > max.temperature) {
+            max = records[i];
+        }
+    }
+    return max;
+}
 
 // Step 10 - Implement findAverage()
 // Compute and return the average temperature
